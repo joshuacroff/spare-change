@@ -13,8 +13,6 @@ get '/home/dashboard' do
 end
 
 post '/signup' do
-  p "*"*30
-  p params
   user= User.new(
                   first_name: params[:first_name],
                   last_name: params[:last_name],
@@ -32,7 +30,7 @@ post '/signup' do
 end
 
 post '/login' do
-  password_hash = params[:password]
+  password_hash = BCrypt::Password.create(params[:password])
   user = User.find_by(username: params[:username])
   if user && user.password_hash == password_hash
     session[:user_id] = user.id
