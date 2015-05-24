@@ -19,7 +19,7 @@ post '/signup' do
                   first_name: params[:first_name],
                   last_name: params[:last_name],
                   username: params[:username],
-                  password_hash: params[:password],
+                  password_hash: BCrypt::Password.create(params[:password]),
                   email: params[:email],
                   charity_id: params[:charity_id]
                   )
