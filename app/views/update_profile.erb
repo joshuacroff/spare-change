@@ -1,0 +1,24 @@
+<form action="/home/dashboard/user_profile/update_profile" method="post">
+<input type="text" name="first_name" placeholder="First Name" value="<%= current_user.first_name%>">
+<br>
+<input type="text" name="last_name" placeholder="Last Name" value="<%=current_user.last_name%>">
+<br>
+<input type="text" name="username" placeholder="Username" value="<%=current_user.username%>">
+<br>
+<!-- <input type="password" name="password" placeholder="Password"> -->
+<!-- <br> -->
+<input type="email" name="email" placeholder="E-mail" value="<%=current_user.email%>">
+<input type="hidden" name="_method" value="put" />
+<br>
+<h4>Housing Organization</h4>
+<select name="charity_id">
+  <option value="1">Community Housing Partnership</option>
+</select>
+<br><br>
+<input type="submit" value="Update Profile">
+</form>
+<br>
+<form action="" method="post">
+  <input type="submit" value="Delete!">
+  <input type="hidden" name="_method" value="delete"/>
+</form>
