@@ -1,5 +1,14 @@
 require 'faker'
 
+User.create(
+    first_name: "Joshua",
+    last_name: "Croff",
+    username: "joshcroff",
+    password_hash: "tomtom",
+    email: "joshua.croff@gmail.com",
+    charity_id: 1
+  )
+
 20.times do
   User.create(
     first_name: Faker::Name.first_name,
@@ -22,13 +31,11 @@ Charity.create(
   payment_method: "Website"
   )
 
-1000.times do
+2500.times do
   Transaction.create(
     amount: Faker::Commerce.price,
-    user_id: rand(19) + 1
+    user_id: rand(1..21)
     )
 end
 
 
-
-#rand(1..9)

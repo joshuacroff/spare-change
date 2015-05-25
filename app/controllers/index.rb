@@ -12,6 +12,28 @@ get '/home/dashboard' do
   erb :dashboard
 end
 
+get '/home/dashboard/user_profile/' do
+   @user = User.find(session[:user_id])
+   erb :user_profile
+end
+
+get '/home/dashboard/user_profile/update_profile' do
+  erb :update_profile
+end
+
+put '/home/dashboard/user_profile/update_profile' do
+  @profile = User.find(session[:user_id])
+  @profile.update_attributes(
+    first_name: params[:first_name],
+    last_name: params[:last_name],
+    username: params[:username],
+    email: params[:email],
+    charity_id: params[:charity_id]
+    )
+  # user.password = params[:password]
+  redirect '/home/dashboard/user_profile/'
+end
+
 post '/signup' do
   user= User.new(
                   first_name: params[:first_name],

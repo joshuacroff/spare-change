@@ -3,9 +3,9 @@ class User < ActiveRecord::Base
   include BCrypt
 
   belongs_to :charity
-  has_many :transactions
+  has_many :transactions, dependent: :destroy
 
-  validates_presence_of :password_hash
+
 
   def password
     @password ||= Password.new(password_hash)
