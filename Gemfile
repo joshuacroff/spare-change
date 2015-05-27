@@ -3,6 +3,7 @@ ruby '2.0.0'
 
 gem 'bcrypt'
 gem 'hirb'
+gem 'awesome_print'
 
 # PostgreSQL driver
 gem 'pg'

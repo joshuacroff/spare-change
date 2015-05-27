@@ -19,6 +19,20 @@
 </head>
 <body>
   <!-- <header><#%= erb :header %></header> -->
-  <%= yield %>
+  <header>
+    <div class="header-inner">
+      <span class="logo">SPARE CHANGE</span>
+      <% if !current_user %>
+        <%= erb :_login %>
+      <% end %>
+    </div>
+  </header>
+  <div class="hero">
+
+  </div>
+  <div class="background">
+    <%= yield %>
+  <!-- <img src="/images/sf_background.jpeg"> -->
+  </div>
 </body>
 </html>
