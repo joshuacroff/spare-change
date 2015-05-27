@@ -5,7 +5,9 @@ class User < ActiveRecord::Base
   belongs_to :charity
   has_many :transactions, dependent: :destroy
 
-
+  def fullname
+    "#{first_name} #{last_name}"
+  end
 
   def password
     @password ||= Password.new(password_hash)

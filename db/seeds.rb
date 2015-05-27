@@ -4,7 +4,7 @@ User.create(
     first_name: "Joshua",
     last_name: "Croff",
     username: "joshcroff",
-    password_hash: "tomtom",
+    password: "tomtom",
     email: "joshua.croff@gmail.com",
     charity_id: 1
   )
@@ -14,7 +14,7 @@ User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     username: Faker::Internet.user_name,
-    password_hash: Faker::Internet.password,
+    password: Faker::Internet.password,
     email: Faker::Internet.email,
     charity_id: 1
     )
@@ -33,7 +33,7 @@ Charity.create(
 
 2500.times do
   Transaction.create(
-    amount: Faker::Commerce.price,
+    original_amount: Faker::Commerce.price,
     user_id: rand(1..21)
     )
 end
