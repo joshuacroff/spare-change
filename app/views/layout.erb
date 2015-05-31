@@ -20,12 +20,7 @@
 <body>
   <!-- <header><#%= erb :header %></header> -->
   <header>
-    <div class="header-inner">
-      <span class="logo">SPARE CHANGE</span>
-      <% if !current_user %>
-        <%= erb :_login %>
-      <% end %>
-    </div>
+    <%= erb :_header %>
   </header>
   <div class="hero">
 

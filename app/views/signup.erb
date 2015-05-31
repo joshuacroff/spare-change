@@ -1,14 +1,23 @@
 <h2>Sign up with Spare Change</h2>
+
+<% if @errors %>
+  <ul>
+    <% @errors.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <form action="/signup" method="post">
-<input type="text" name="first_name" placeholder="First Name">
+<input type="text" name="first_name" placeholder="First Name" value="<%= @user.first_name %>">
 <br>
-<input type="text" name="last_name" placeholder="Last Name">
+<input type="text" name="last_name" placeholder="Last Name" value="<%= @user.last_name %>">
 <br>
-<input type="text" name="username" placeholder="Username">
+<input type="text" name="username" placeholder="Username" value="<%= @user.username %>">
 <br>
 <input type="password" name="password" placeholder="Password">
 <br>
-<input type="email" name="email" placeholder="E-mail">
+<input type="email" name="email" placeholder="E-mail" value="<%= @user.email %>">
 <br>
 <h4>Housing Organization</h4>
 <select name="charity_id">

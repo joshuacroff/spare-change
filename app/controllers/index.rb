@@ -1,33 +1,53 @@
-# get '/'
+##################################################
 get '/' do
-  "Hello World"
+
   erb :index
 end
 
 # get '/register'
 get '/signup' do
+  @user = User.new
+  @errors = []
   erb :signup
 end
 
-# get '/home'
-# get '/dashboard'
+post '/signup' do
+  @user = User.new(
+    first_name:    params[:first_name],
+    last_name:     params[:last_name],
+    username:      params[:username],
+    email:         params[:email],
+    charity_id:    params[:charity_id]
+  )
+  @user.password = params[:password]
+
+  if @user.save
+    session[:user_id] = @user.id
+    redirect '/dashboard/me'
+  else
+    @errors = @user.errors.full_messages
+    erb :signup
+  end
+end
+
+#################################################
+
 get '/dashboard' do
   @user = User.find(session[:user_id])
+  @year_contributions = @user.transaction_sum
   erb :dashboard
 end
 
-# get '/dashboard/me'
 get "/dashboard/me" do
    @user = User.find(session[:user_id])
-   erb :user_profile
+
+   erb :_user_profile
 end
 
-# get '/dashboard/me/edit'
 get '/dashboard/me/edit' do
   erb :update_profile
 end
 
-# put '/dashboard/me'
 put '/dashboard/me' do
   @profile = User.find(session[:user_id])
   @profile.update_attributes(
@@ -41,23 +61,6 @@ put '/dashboard/me' do
   redirect '/dashboard/me'
 end
 
-post '/signup' do
-  user= User.new(
-    first_name:    params[:first_name],
-    last_name:     params[:last_name],
-    username:      params[:username],
-    email:         params[:email],
-    charity_id:    params[:charity_id]
-  )
-  user.password = params[:password]
-
-  if user.save
-    session[:user_id] = user.id
-    redirect '/home/dashboard'
-  else
-    redirect '/signup'
-  end
-end
 
 post '/login' do
   password_hash = params[:password]

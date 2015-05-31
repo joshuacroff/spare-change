@@ -1,5 +1,10 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,700,500,300);
 
+html, body {
+  position: relative;
+  width: 100%
+}
+
 p {
   margin: 0;
   margin-bottom: 20px;
@@ -14,23 +19,101 @@ header {
 .header-inner {
   width: 960px;
   margin: 0 auto;
+  display: block;
 }
 
 header .logo {
+  margin: 0;
+  display: inline-block;
+  }
+
+header .logo a {
   font-size: 35px;
   color: black;
-  font-family: "Roboto"
-  }
+  font-family: "Roboto";
+  text-decoration: none;
+  font-weight: 400;
+}
 
 /* hero */
 .hero {
   height: 400px;
   background-image: url("/images/sf_background.jpeg");
-
+  background-size: 100%;
 }
 
 
 .login-form {
   float: right;
+  margin-top: 8px;
 
 }
+
+.login-form form {
+  display: inline-block;
+  width: auto;
+  vertical-align: top;
+  }
+
+  .login-form input {
+    line-height: normal;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    -webkit-appearance: none;
+    box-shadow: none;
+    border: 1px solid #efefef;
+    display: inline-block;
+    width: auto;
+    float: left;
+    position: relative;
+}
+.navigation {
+  float: right;
+
+}
+
+.navigation form {
+  display: inline-block;
+
+}
+
+ .button {
+
+  -webkit-appearance: none;
+  border: none;
+  background: none;
+  background: #246C60;
+  padding: 5px 14px 5px 14px;
+  color: #FFF;
+  text-transform: uppercase;
+  border-radius: 3px;
+  font-size: 14px;
+
+  }
+
+  .user-profile-table {
+    text-align: left;
+    position: relative;
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+  }
+
+
+  .page-content {
+    margin: 0 auto;
+    display: block;
+    max-width: 500px;
+  }
+
+  div input {
+    line-height: normal;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    -webkit-appearance: none;
+    box-shadow: none;
+    border: 1px solid #efefef;
+  }

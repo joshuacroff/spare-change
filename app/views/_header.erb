@@ -1,0 +1,8 @@
+<div class="header-inner">
+  <h1 class="logo"><a href="/">SPARE CHANGE</a></h1>
+    <% if !current_user %>
+      <%= erb :_login %>
+    <% else %>
+      <%= erb :_navigation %><br>
+    <% end %>
+</div>

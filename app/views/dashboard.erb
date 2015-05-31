@@ -1,12 +1,6 @@
-<form action="/signout" method = "get">
-<br>
-<input type="submit" value="Sign Out">
-</form>
-<form action="/dashboard/#{current_user.fullname}/" method = "get">
-<br>
-<input type="submit" value="Profile">
-
-</form>
-
-
-this is the dashboard
+<div class="page-content">
+  <h1>Your yearly contribution:</h1>
+  <ul>
+    <li>$ <%= @year_contributions %></li>
+  </ul>
+</div>
